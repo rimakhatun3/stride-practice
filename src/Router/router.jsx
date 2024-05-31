@@ -12,11 +12,13 @@ import AllProduct from "../Pages/Dashboard/AllProduct";
 import ProductDetals from "../Pages/productDetails/ProductDetals";
 import EditItem from "../Component/EditItem";
 import AddProduct from "../Pages/Dashboard/AddProduct";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
  const router = createBrowserRouter([
     {
         path:'/',
         element:<MainLayout/>,
+        errorElement:<ErrorPage/>,
         children:[
             {
                 path:'/',
