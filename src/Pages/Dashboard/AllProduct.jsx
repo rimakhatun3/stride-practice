@@ -11,7 +11,7 @@ const AllProduct = () => {
     const [products,setProducts] = useState([])
 
     useEffect(()=>{
-      fetch('http://localhost:3000/shoes')
+      fetch('http://localhost:5000/shoes')
       .then(res=>res.json())
       .then(data=>{
         setProducts(data)
@@ -19,7 +19,7 @@ const AllProduct = () => {
     },[])
 
     const handleDelete= (id)=>{
-      setProducts(products.filter(product=>product.id!==id))
+      setProducts(products.filter(product=>product._id!==id))
     }
 
     return (
@@ -41,7 +41,7 @@ const AllProduct = () => {
         </thead>
         <tbody>
         {
-           products?.map(item=><ShoeRow key={item.id} item={item} onDelete={handleDelete}></ShoeRow>)
+           products?.map(item=><ShoeRow key={item._id} item={item} onDelete={handleDelete}></ShoeRow>)
         }
           
         

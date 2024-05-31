@@ -41,7 +41,7 @@ import AddProduct from "../Pages/Dashboard/AddProduct";
             {
                 path:'/productdetails/:id',
                 element:<ProductDetals/>,
-                loader:({params})=>fetch(`http://localhost:3000/shoes/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/shoes/${params.id}`)
 
             },
             
@@ -67,7 +67,7 @@ import AddProduct from "../Pages/Dashboard/AddProduct";
         {
             path:'allproduct/edit/:id',
             element:<EditItem></EditItem>,
-            loader:({params})=> fetch(`http://localhost:3000/shoes/${params.id}`)
+            loader:({params})=> fetch(`http://localhost:5000/shoes/${params.id}`)
         },
 
 

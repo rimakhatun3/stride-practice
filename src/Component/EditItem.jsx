@@ -25,7 +25,7 @@ const itemData = {
 }
 
 
-  await fetch(`http://localhost:3000/shoes/${items.id}`,{
+  await fetch(`http://localhost:5000/shoes/${items._id}`,{
     method:"PATCH",
     headers:{
         "Content-type":"application/json",
@@ -35,7 +35,7 @@ const itemData = {
   .then(res=>res.json())
   .then(data=>{
     console.log(data)
-    if(data){
+    if(data.modifiedCount>0){
         Swal.fire({
             title: "Good job!",
             text: "Data edit success",

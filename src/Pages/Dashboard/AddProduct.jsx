@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+
 import Swal from 'sweetalert2';
 
 const AddProduct = () => {
@@ -12,10 +12,10 @@ const AddProduct = () => {
         const brand = form.brand.value
         const price = form.price.value
         const description = form.description.value
-        const id = form.id.value
+        
         const itemData = {
             image_url,
-            id,
+            
             title,
             brand,
             price,
@@ -23,7 +23,7 @@ const AddProduct = () => {
         }
         
         
-          await fetch(`http://localhost:3000/shoes/`,{
+          await fetch(`http://localhost:5000/shoes/`,{
             method:"POST",
             headers:{
                 "Content-type":"application/json",
@@ -33,13 +33,16 @@ const AddProduct = () => {
           .then(res=>res.json())
           .then(data=>{
             console.log(data)
-            if(data){
+            if(data.acknowledged === true
+              ){
                 Swal.fire({
                     title: "Good job!",
                     text: "Product added succes",
                     icon: "success"
                   });
             }
+
+            form.reset()
             
           })
         
@@ -57,16 +60,13 @@ const AddProduct = () => {
                     <input className=' px-4 py-2 border rounded-lg w-full ' type="text"  name="image_url" id="" />
                 </div>
                 <div className='w-1/2'>
-                    <p className='mb-2 ms-2'>Id</p>
-                  <input  className='px-4 py-2 border rounded-lg w-full'  type="text" name="id" id="" />
-                </div>
-                </div>
-                <div className='flex flex-row justify-center items-center ms-10  '>
-                <div className='w-1/2'>
                 <p className='my-2 ms-2'>Title</p>
                   <input  className='px-4 py-2 border rounded-lg w-full'  type="text" name="title" id="" />
                 </div>
-                <div className='w-1/2 mx-9'>
+                </div>
+                <div className='flex flex-row justify-center items-center ms-10 gap-6  '>
+               
+                <div className='w-1/2'>
                     
                 
                     <p className='my-2 ms-2'>Brand</p>
